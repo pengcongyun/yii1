@@ -13,7 +13,7 @@ class UserController extends Controller
     //登录
     public function actionLogin(){
 	    $res=Yii::app()->user->name;
-	    if(!empty($res)){
+	    if($res!=="Guest"){
 	        $this->redirect(['User/index']);
         }
 	    $model=new LoginForm();
@@ -69,7 +69,7 @@ class UserController extends Controller
             }else{
                 $model->password=md5($_POST['User']['password']);
             }
-            $res=$model->save($_POST);
+            $res=$model->save();
             if($res===true){
                 $this->redirect(['/User/index']);
             }else{
