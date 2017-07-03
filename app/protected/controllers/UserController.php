@@ -21,7 +21,7 @@ class UserController extends Controller
             $model->attributes=$_POST['LoginForm'];
 	        if(!$model->validate()){
                 Yii::app()->user->setFlash('error', 'Permission denied.');
-                $this->redirect(Yii::app()->homeUrl);
+//                $this->redirect(Yii::app()->homeUrl);
             }else{
                 $model->login($model);
                 $this->redirect(Yii::app()->homeUrl);

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-06-29 17:44:32
+Date: 2017-07-03 18:04:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,14 +26,13 @@ CREATE TABLE `good` (
   `parent_id` int(11) DEFAULT NULL,
   `description` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of good
 -- ----------------------------
-INSERT INTO `good` VALUES ('2', 'ff', '/assets/upfile/file_1498728922_33.jpg', '1', 'sadsf');
 INSERT INTO `good` VALUES ('3', 'ff', './assets/upfile/file_1498729123_6641.jpg', '1', 'sda');
-INSERT INTO `good` VALUES ('4', 'ff', './assets/upfile/file_1498729357_3485.jpg', '1', '');
+INSERT INTO `good` VALUES ('7', '鞋子', './assets/upfile/file_1499063883_9060.jpg', '4', '信息');
 
 -- ----------------------------
 -- Table structure for goodcategory
@@ -51,6 +50,20 @@ CREATE TABLE `goodcategory` (
 INSERT INTO `goodcategory` VALUES ('1', '手机');
 INSERT INTO `goodcategory` VALUES ('2', '衣服');
 INSERT INTO `goodcategory` VALUES ('4', '裤子');
+
+-- ----------------------------
+-- Table structure for photo
+-- ----------------------------
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE `photo` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `photo` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of photo
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user

@@ -19,11 +19,11 @@ $this->breadcrumbs=array(
     <tr>
         <td><?=$row->id?></td>
         <td><?=$row->name?></td>
-        <td><?=CHtml::image($row->photo,'图片alt',['width'=>50,'hight'=>50]);?></td>
+        <td><?=CHtml::image($row->photo,'',['width'=>50,'hight'=>50]);?></td>
         <td><?=$row->parent_id?></td>
         <td><?=$row->description?></td>
         <td>
-            <a href="<?=$this->createUrl('/good/edit',['id'=>$row->id])?>">添加</a>
+            <a href="<?=$this->createUrl('/good/edit',['id'=>$row->id])?>">编辑</a>
             <a href="<?=$this->createUrl('/good/delete',['id'=>$row->id])?>">删除</a>
         </td>
     </tr>
