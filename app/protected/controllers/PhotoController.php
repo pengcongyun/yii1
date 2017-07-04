@@ -3,6 +3,11 @@
 class PhotoController extends Controller
 {
     public $layout='user';
+    public $dish;
+    public function init(){
+        parent::init();
+        $this->dish = new Dish();
+    }
 	public function actionIndex()
 	{
 	    $model=Photo::model()->findAll();
