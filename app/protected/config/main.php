@@ -10,7 +10,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'测试首页',
     //配置入口访问
-    'defaultController'=>'user',
+    'defaultController'=>'admin',
 	// preloading 'log' component
 	'preload'=>array('log'),
 

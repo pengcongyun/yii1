@@ -26,7 +26,7 @@ class AdminIdentity extends CUserIdentity
 //		var_dump($this->password);
         $user=Admin::model();
 		$users=$user->findByAttributes(['adminname'=>$this->username]);
-		if(!isset($users->username))
+		if(!isset($users->adminname))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		elseif($users->password!==md5($this->password))
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;

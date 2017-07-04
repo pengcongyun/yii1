@@ -5,7 +5,7 @@ class AdminForm extends CFormModel
     public $email;
     public $subject;
     public $body;
-
+    public $rememberMe;
     public $adminname;
     public $password;
     public $verifyCode;
@@ -18,6 +18,7 @@ class AdminForm extends CFormModel
 			array('adminname', 'length', 'max'=>20),
 			array('password', 'length', 'max'=>32),
 			// The following rule is used by search().
+            array('rememberMe', 'boolean'),
 			// @todo Please remove those attributes that should not be searched.
 			array('id, adminname, password', 'safe', 'on'=>'search'),
 			array('adminname, password,verifyCode','required','message'=>'必填'),
@@ -40,7 +41,7 @@ class AdminForm extends CFormModel
     {
         if(!$this->hasErrors())
         {
-            $this->_identity=new UserIdentity($this->adminname,$this->password);
+            $this->_identity=new AdminIdentity($this->adminname,$this->password);
             if(!$this->_identity->authenticate())
                 $this->addError('password','Incorrect username or password.');
         }
@@ -54,13 +55,12 @@ class AdminForm extends CFormModel
     {
         if($this->_identity===null)
         {
-            $this->_identity=new UserIdentity($this->adminname,$this->password);
+            $this->_identity=new AdminIdentity($this->adminname,$this->password);
             $this->_identity->authenticate();
         }
-        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        if($this->_identity->errorCode===AdminIdentity::ERROR_NONE)
         {
-//			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-            $duration=3600*24*30;
+			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
             Yii::app()->user->login($this->_identity,$duration);
             return true;
         }
