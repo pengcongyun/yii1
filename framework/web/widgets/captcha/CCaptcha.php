@@ -118,7 +118,7 @@ class CCaptcha extends CWidget
 		{
 			// reserve a place in the registered script so that any enclosing button js code appears after the captcha js
 			$cs->registerScript('Yii.CCaptcha#'.$id,'// dummy');
-			$label=$this->buttonLabel===null?Yii::t('yii','Get a new code'):$this->buttonLabel;
+			$label=$this->buttonLabel===null?Yii::t('yii','换一张'):$this->buttonLabel;
 			$options=$this->buttonOptions;
 			if(isset($options['id']))
 				$buttonID=$options['id'];

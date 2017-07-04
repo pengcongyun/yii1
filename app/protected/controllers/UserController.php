@@ -91,23 +91,19 @@ class UserController extends Controller
 			),
 		);
 	}
-*/
+
 	public function actions()
 	{
 		// return external action classes, e.g.:
-        return array(
-            // captcha action renders the CAPTCHA image displayed on the contact page
-            'captcha'=>array(
-                'class'=>'CCaptchaAction',
-                'backColor'=>0xFFFFFF,
-            ),
-            // page action renders "static" pages stored under 'protected/views/site/pages'
-            // They can be accessed via: index.php?r=site/page&view=FileName
-            'page'=>array(
-                'class'=>'CViewAction',
-            ),
-        );
+		return array(
+			'action1'=>'path.to.ActionClass',
+			'action2'=>array(
+				'class'=>'path.to.AnotherActionClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
 	}
+	*/
 	//退出
 	public function actionLogout(){
         Yii::app()->user->logout();
