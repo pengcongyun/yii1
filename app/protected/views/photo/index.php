@@ -1,13 +1,17 @@
-<?php
-/* @var $this PhotoController */
-
-$this->breadcrumbs=array(
-	'Photo',
-);
-?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
-
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+<a href="<?php echo $this->createUrl('/Photo/add')?>">新增</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>图片</th>
+        <th>操作</th>
+    </tr>
+<?php foreach ($model as $row): ?>
+    <tr>
+        <td><?php echo $row->id;?></td>
+        <td><?php echo $row->photo;?></td>
+        <td>
+            <a href="">删除</a>
+        </td>
+    </tr>
+<?php endforeach;?>
+</table>

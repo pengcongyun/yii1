@@ -5,11 +5,20 @@ class GoodController extends Controller
     public $layout='user';
 	public function actionIndex()
 	{
-        $model=Good::model()->findAll();
-        foreach ($model as $k=>$v){
-            $model[$k]['parent_id']=Goodcategory::model()->findByPk($v->parent_id)->cate_name;
+        $this->setPageTitle('good');
+        $model = new CActiveDataProvider('good',array(
+            'pagination'=>array(
+                'pageSize'=>3,
+            ),
+        ));
+        foreach ($model->getData() as $k=>$v){
+            $model->getData()[$k]['parent_id']=Goodcategory::model()->findByPk($v->parent_id)->cate_name;
         }
-		$this->render('index',['model'=>$model]);
+        $this->render('index', [
+                'model'=>$model,
+                'banner_page' => isset($_GET['banner_page'])?$_GET['banner_page']:1,
+            ]
+        );
 	}
     public function actionAdd(){
 	    $model=new Good;
@@ -20,9 +29,11 @@ class GoodController extends Controller
 //                $model->photo = $model->photo_save;
                 $photo->saveAs($model->photo);
             }
+            $model->hobby=array_sum($_POST['Good']['hobby']);
             $model->name=$_POST['Good']['name'];
             $model->parent_id=$_POST['Good']['parent_id'];
             $model->description=$_POST['Good']['description'];
+            $model->sex=$_POST['Good']['sex'];
             $res=$model->save();
             if($res===true){
                 $this->redirect(['/good/index']);
@@ -69,9 +80,11 @@ class GoodController extends Controller
 //                $model->photo = $model->photo_save;
                 $photo->saveAs($model->photo);
             }
+            $model->hobby=array_sum($_POST['Good']['hobby']);
             $model->name=$_POST['Good']['name'];
             $model->parent_id=$_POST['Good']['parent_id'];
             $model->description=$_POST['Good']['description'];
+            $model->sex=$_POST['Good']['sex'];
             $res=$model->save();
             if($res===true){
                 $this->redirect(['/good/index']);
@@ -80,9 +93,20 @@ class GoodController extends Controller
             }
         }
         $cates=Goodcategory::model()->findAll();
+        $hobby=[];
         foreach ($cates as $v){
             $cate[$v->id]=$v->cate_name;
         }
+        if($model->hobby&1){
+            $hobby[]=1;
+        }
+        if($model->hobby&2){
+            $hobby[]=2;
+        }
+        if($model->hobby&4){
+            $hobby[]=4;
+        }
+        $model->hobby=$hobby;
         $this->render('edit',['model'=>$model,'cate'=>$cate]);
     }
 	// Uncomment the following methods and override them if needed

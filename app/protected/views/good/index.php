@@ -1,3 +1,16 @@
+<style>
+    .pager-box li{
+        list-style-type:none;
+        margin-left: 3px;
+        display: inline;
+    }
+    .pager-box a{
+        text-decoration: none;
+        border: 1px solid #CEE3FA;
+    }
+
+</style>
+
 <?php
 /* @var $this GoodController */
 
@@ -15,7 +28,7 @@ $this->breadcrumbs=array(
         <th>描述</th>
         <th>操作</th>
     </tr>
-    <?php foreach ($model as $row):?>
+    <?php foreach ($model->getData() as $row):?>
     <tr>
         <td><?=$row->id?></td>
         <td><?=$row->name?></td>
@@ -30,3 +43,6 @@ $this->breadcrumbs=array(
     <?php endforeach;?>
 
 </table>
+<div class="pager-box ">
+    <?php $this->widget('CLinkPager', array('cssFile'=>false,'header'=>'','pages' => $model->pagination));?>
+</div>

@@ -24,6 +24,10 @@ class AdminController extends Controller
     }
     //登录
     public function actionAdmin(){
+        $res=Yii::app()->user->name;
+        if($res!=="Guest"){
+            $this->redirect(['admin/index']);
+        }
         $model=new AdminForm();
         if(isset($_POST['AdminForm'])){
             $model->attributes=$_POST['AdminForm'];

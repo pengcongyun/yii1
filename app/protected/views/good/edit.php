@@ -49,6 +49,23 @@ $this->breadcrumbs=array(
         <?php echo $form->error($model,'description'); ?>
     </div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'性别'); ?>
+        <?php echo $form->radioButtonList($model,'sex',['1'=>'男','2'=>'女'],[
+            'separator'=>'&nbsp;',      //间隔符
+            'labelOptions'=>[
+                'class'=>'radiolabel',  //设置类
+                'style'=>'display:inline;color:red',
+            ]
+        ])?>
+        <?php echo $form->error($model,'sex'); ?>
+    </div>
+
+    <div class="row row1">
+        <?php echo $form->labelEx($model,'爱好'); ?>
+        <?php echo $form->checkBoxlist($model,'hobby',['1'=>'男球','2'=>'足球','4'=>'排球'],array('separator'=>'','labelOptions'=>array('style'=> "display: inline-block"))); ?>
+    </div>
+
     <div class="row buttons">
         <?php echo CHtml::submitButton('编辑提交'); ?>
     </div>

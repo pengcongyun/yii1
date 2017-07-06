@@ -11,14 +11,14 @@ class PhotoController extends Controller
 	public function actionIndex()
 	{
 	    $model=Photo::model()->findAll();
-		$this->render('index',['model',$model]);
+		$this->render('index',['model'=>$model]);
 	}
     public function actionAdd(){
 	    $model=new Photo;
 	    if(isset($_POST['Photo'])){
             var_dump($_FILES);exit;
         }
-        $this->render('add',['model'=>$model]);
+        $this->render('add1',['model'=>$model]);
     }
 	// Uncomment the following methods and override them if needed
 	/*

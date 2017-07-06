@@ -30,10 +30,12 @@ class Good extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
+			array('sex', 'required'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>20),
 			array('photo', 'length', 'max'=>255),
 			array('description', 'safe'),
+			array('hobby', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, photo, parent_id, description', 'safe', 'on'=>'search'),
