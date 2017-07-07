@@ -20,4 +20,26 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+    /*视频上传*/
+    public function unploadVod($video)
+    {
+        require_once('/QcloudApi/VodUpload.php');
+        $vod = new VodApi();
+        $vod->Init("AKIDyG1uZo8bPzuZV8RJwQPopBNikTj38e1A", "oShHZQfBLnR5T6dSlZUSsxp3aZNUz43n", VodApi::USAGE_UPLOAD, "gz");
+
+        $vod->SetConcurrentNum(20);    //设置并发上传的分片数目，不调用此函数时默认并发上传数为6
+        $vod->SetRetryTimes(5);    //设置每个分片可重传的次数，不调用此函数时默认值为5
+
+        // $package: 上传的文件配置参数
+        $package = array(
+            'fileName' => $video,                //文件的绝对路径，包含文件名
+            'dataSize' => 1024 * 512,            //分片大小，单位Bytes。断点续传时，dataSize强制使用第一次上传时的值。
+            'isTranscode' => 1,                    //是否转码
+            'isScreenshot' => 0,                //是否截图
+            'isWatermark' => 0,                    //是否添加水印
+            'classId' => 0                        //分类
+        );
+        //$vod->AddFileTag("测试1");
+        return $vod->UploadVideo($package);
+    }
 }

@@ -15,8 +15,19 @@ class PhotoController extends Controller
 	}
     public function actionAdd(){
 	    $model=new Photo;
-	    if(isset($_POST['Photo'])){
-            var_dump($_FILES);exit;
+	    if($_POST){
+            $count=count($_POST['paths'] );
+            for($i=0;$i<$count;$i++){
+                $model1=clone $model;
+                $model1->photo = $_POST['paths'][$i];
+                $model1->save();
+            }
+//            foreach($_POST['paths'] as $data){
+//                $model1=clone $model;
+//                $model1->photo = $data;
+//                $model1->save($data);
+//            }
+            $this->redirect(['/Photo/index']);
         }
         $this->render('add1',['model'=>$model]);
     }

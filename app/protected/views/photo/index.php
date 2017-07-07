@@ -8,7 +8,10 @@
 <?php foreach ($model as $row): ?>
     <tr>
         <td><?php echo $row->id;?></td>
-        <td><?php echo $row->photo;?></td>
+        <td>
+            <img src="<?php echo $row->photo;?>" alt="" width="50px" height="50px">
+
+        </td>
         <td>
             <a href="">删除</a>
         </td>

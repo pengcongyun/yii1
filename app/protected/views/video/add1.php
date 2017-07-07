@@ -1,6 +1,7 @@
 <?php
+/* @var $this VideoController */
 $this->breadcrumbs=array(
-    'Photo'=>array('/photo'),
+    'Video'=>array('/video'),
     'Add',
 );
 ?>
@@ -38,13 +39,14 @@ $this->breadcrumbs=array(
         color: red;
     }
 </style>
-<form action="<?php echo $this->createUrl('/photo/add');?>" method="post" enctype="multipart/form-data">
+<br>
+<form action="<?php echo $this->createUrl('/video/add1')?>" method="post" enctype="multipart/form-data">
     <a href="javascript:;" class="a-upload">
-        <input type="file" name="pic1" id="imgPicker"/>上传图片
+        <input type="file" name="pic1" id="imgPicker"/>上传视频
     </a>
-    <div class="upload-img-box">
+    <video src="" controls="controls" class="upload-img-box">
 
-    </div>
+    </video>
     <input type="submit">
 </form>
 <script src="/js/jquery.js"></script>
@@ -64,16 +66,7 @@ $this->breadcrumbs=array(
         },
         success: function (ret) {
             var upload_img_box = $('.upload-img-box');
-            var html = '';
-            html += '<div class="upload-pre-item" style="display: inline-block;width: 104px;margin-right: 10px;margin-bottom: 8px">';
-            html += '<table border="0" style="border:1px solid grey;" cellpadding="0" cellspacing="1"><tr><td>';
-            html += '<input type="hidden" name="paths[]" value="'+ret+'"/>';
-            html += '<img src="'+ret+'" width="100" height="120"/>';
-            html += '</td></tr><tr><td>';
-            html += '<div class="del_img" style="text-align: center">X</div>';
-            html += '</td></tr></table>';
-            html +='</div>';
-            $(html).appendTo(upload_img_box);
+            upload_img_box.src(ret);
         },
         error: function (ret) {
             layer.alert(ret);
