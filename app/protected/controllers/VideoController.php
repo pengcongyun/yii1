@@ -57,7 +57,7 @@ class VideoController extends Controller
         }
     }
     public function actionOne(){
-        
+        echo 11;exit;
     }
 	// Uncomment the following methods and override them if needed
 	/*
