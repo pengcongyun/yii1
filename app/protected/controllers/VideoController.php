@@ -56,6 +56,9 @@ class VideoController extends Controller
             var_dump(11);exit;
         }
     }
+    public function actionOne(){
+        
+    }
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
