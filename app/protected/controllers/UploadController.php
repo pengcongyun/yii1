@@ -39,4 +39,25 @@ class UploadController extends Controller
         }
         echo  json_encode($data);
     }
+    //上传视频   腾讯云上传视频转码太慢， 无法ajax上传
+    public function actionUploadVideo(){
+        //读取图像上传域,并使用系统上传组件上传
+        $tmpFile   = CUploadedFile::getInstanceByName('pic1');
+        if(is_object($tmpFile) && get_class($tmpFile)==='CUploadedFile'){
+            $filename = time().rand(0,9);
+            //上传文件的扩展名
+            $ext = $tmpFile->extensionName;
+            /* if($ext=='jpg'||$ext=='gif'||$ext=='png'){
+                 $big = $pathd . $filename . '_600.' . $ext; //310缩略图
+                 $small  = $pathd . $filename . '_310.' . $ext; //310缩略图
+                 $thumb  = $pathd . $filename . '_100.' . $ext; //100缩略图
+                 $model->zat_thumb = $thumb; //缩略图
+             }*/
+            $uploadfile = './assets/photo/file_' . $filename . '.' . $ext;  //保存的路径
+            $tmpFile->saveAs($uploadfile);
+            $fileid=$this->unploadVod($uploadfile);
+            $str = json_encode($fileid);
+            echo $str;
+        }
+    }
 }

@@ -29,10 +29,15 @@ class VideoController extends Controller
     }
     //
     public function actionAdd1(){
+        $model=new Video;
         if($_POST){
-            var_dump($_POST);
-            var_dump($_FILES);
-            exit;
+            $model->video=$this->unploadVod($_POST['video']);
+            $res=$model->save();
+            if($res===true){
+                $this->redirect(['/video/index']);
+            }else{
+                echo '添加失败'.'<a href="http://www.peng.com/index.php?r=video/index">返回列表页</a>';exit;
+            }
         }
         $this->render('add1');
     }
@@ -40,6 +45,16 @@ class VideoController extends Controller
     public function actionLook($id){
         $model=Video::model()->findByPk($id);
         $this->render('look',['model'=>$model]);
+    }
+    //删除
+    public function actionDelete($id){
+        $model=Video::model();
+        $res=$model->deleteByPk($id);
+        if($res===1){
+            return $this->redirect(['Video/index']);
+        }else{
+            var_dump(11);exit;
+        }
     }
 	// Uncomment the following methods and override them if needed
 	/*

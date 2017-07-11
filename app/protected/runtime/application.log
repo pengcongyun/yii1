@@ -2831,3 +2831,53 @@ Stack trace:
 REQUEST_URI=/index.php?r=photo/add
 in D:\phpStudy\WWW\yii1\app\protected\controllers\PhotoController.php (24)
 in D:\phpStudy\WWW\yii1\app\index.php (13)
+2017/07/10 12:50:12 [error] [php] Object of class stdClass could not be converted to string (D:\phpStudy\WWW\yii1\app\protected\controllers\SmsController.php:10)
+Stack trace:
+#0 D:\phpStudy\WWW\yii1\framework\web\CController.php(286): SmsController->runAction()
+#1 D:\phpStudy\WWW\yii1\framework\web\CController.php(265): SmsController->runActionWithFilters()
+#2 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(282): SmsController->run()
+#3 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\phpStudy\WWW\yii1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 D:\phpStudy\WWW\yii1\app\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=sms/index
+in D:\phpStudy\WWW\yii1\app\protected\controllers\SmsController.php (10)
+in D:\phpStudy\WWW\yii1\app\index.php (13)
+2017/07/10 16:48:32 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\phpStudy\WWW\yii1\framework\web\CController.php:337
+Stack trace:
+#0 D:\phpStudy\WWW\yii1\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\phpStudy\WWW\yii1\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 D:\phpStudy\WWW\yii1\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(282): CController->run('sms')
+#4 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(141): CWebApplication->runController('sms/sms')
+#5 D:\phpStudy\WWW\yii1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 D:\phpStudy\WWW\yii1\app\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=sms/sms
+HTTP_REFERER=http://www.peng.com/index.php?r=sms/index
+---
+2017/07/10 16:50:08 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\phpStudy\WWW\yii1\framework\web\CController.php:337
+Stack trace:
+#0 D:\phpStudy\WWW\yii1\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\phpStudy\WWW\yii1\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 D:\phpStudy\WWW\yii1\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(282): CController->run('sms')
+#4 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(141): CWebApplication->runController('sms/sms')
+#5 D:\phpStudy\WWW\yii1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 D:\phpStudy\WWW\yii1\app\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=sms/sms
+HTTP_REFERER=http://www.peng.com/index.php?r=sms/index
+---
+2017/07/10 16:51:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\phpStudy\WWW\yii1\framework\web\CController.php:337
+Stack trace:
+#0 D:\phpStudy\WWW\yii1\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\phpStudy\WWW\yii1\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 D:\phpStudy\WWW\yii1\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(282): CController->run('sms')
+#4 D:\phpStudy\WWW\yii1\framework\web\CWebApplication.php(141): CWebApplication->runController('sms/sms')
+#5 D:\phpStudy\WWW\yii1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 D:\phpStudy\WWW\yii1\app\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=sms/sms
+HTTP_REFERER=http://www.peng.com/index.php?r=sms/index
+---

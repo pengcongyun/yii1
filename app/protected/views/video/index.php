@@ -17,7 +17,7 @@ $this->breadcrumbs=array(
         <td><?=$row->id?></td>
         <td><?=$row->video?></td>
         <td>
-            <a href="">删除</a>
+            <a href="<?php echo $this->createUrl('/video/delete',['id'=>$row->id])?>">删除</a>
             <a href="<?php echo $this->createUrl('/video/look',['id'=>$row->id])?>">查看</a>
         </td>
     </tr>

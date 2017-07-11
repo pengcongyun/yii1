@@ -44,9 +44,9 @@ $this->breadcrumbs=array(
     <a href="javascript:;" class="a-upload">
         <input type="file" name="pic1" id="imgPicker"/>上传视频
     </a>
-    <video src="" controls="controls" class="upload-img-box">
+    <div class="upload-img-box">
 
-    </video>
+    </div>
     <input type="submit">
 </form>
 <script src="/js/jquery.js"></script>
@@ -66,7 +66,9 @@ $this->breadcrumbs=array(
         },
         success: function (ret) {
             var upload_img_box = $('.upload-img-box');
-            upload_img_box.src(ret);
+            var html = '';
+            html= '<div><video src="'+ret+'" controls="controls"></video><input type="hidden" name="video" value="'+ret+'"><div style="margin-left: 50px;color:red;" class="del_img">取消上传</div></div>';
+            upload_img_box.html(html);
         },
         error: function (ret) {
             layer.alert(ret);
@@ -77,17 +79,18 @@ $this->breadcrumbs=array(
     });
     //事件绑定，当点击X的时候就将div整个移除
     $('.upload-img-box').on('click','.del_img', function(){
-        var pic=$(this).parent().parent().parent().find('img')[0].src;
-        var node = $(this);
+        var video=$(this).parent().parent().find('div')[0];
+        var vid=$('input[name=video]').val();
         var url = '<?php echo $this->createUrl('/upload/delete');?>';
-        var data={pic:pic};
+        var data={pic:vid};
         $.getJSON(url,data,function(response){
             if(response.status==2){
-                node.parents('table').parent('div').remove();
+                video.remove();
                 layer.msg(response.msg);
             }else{
                 layer.msg(response.msg);
             }
         });
+
     })
 </script>
