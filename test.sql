@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-07-07 18:05:03
+Date: 2017-07-13 18:00:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -79,13 +79,15 @@ CREATE TABLE `photo` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `photo` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of photo
 -- ----------------------------
 INSERT INTO `photo` VALUES ('1', './assets/photo/file_14993990169.jpg');
 INSERT INTO `photo` VALUES ('2', './assets/photo/file_14993990180.jpg');
+INSERT INTO `photo` VALUES ('3', './assets/photo/file_14996586636.png');
+INSERT INTO `photo` VALUES ('4', './assets/photo/file_14996587089.jpg');
 
 -- ----------------------------
 -- Table structure for user
@@ -115,14 +117,13 @@ CREATE TABLE `video` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `video` char(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of video
 -- ----------------------------
 INSERT INTO `video` VALUES ('1', './assets/upfile/file_1499408061_3414.jpg');
 INSERT INTO `video` VALUES ('2', './assets/upfile/file_1499408113_2450.jpg');
-INSERT INTO `video` VALUES ('3', './assets/upfile/file_1499408172_7367.jpg');
 INSERT INTO `video` VALUES ('4', './assets/upfile/file_1499408203_3319.mp4');
 INSERT INTO `video` VALUES ('5', '9031868223008583254');
 INSERT INTO `video` VALUES ('6', '9031868223008583508');
