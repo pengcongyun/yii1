@@ -35,6 +35,7 @@
 				array('label'=>'多图片', 'url'=>array('photo/index')),
 				array('label'=>'视频', 'url'=>array('video/index')),
 				array('label'=>'腾讯短信', 'url'=>array('sms/index')),
+				array('label'=>'webupload', 'url'=>array('webpic/index')),
 				array('label'=>'登录', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
