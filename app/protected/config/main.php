@@ -10,7 +10,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'测试首页',
     //配置入口访问
-    'defaultController'=>'admin',
+    'defaultController'=>'user',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -34,7 +34,6 @@ return array(
 
 	// application components
 	'components'=>array(
-
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -75,9 +74,19 @@ return array(
 				*/
 			),
 		),
-
-	),
-
+        'redis'=>array(
+               'class'=>'ext.YiiRedis.ARedisConnection',
+                        'client'=>array(
+                                'host'=>'localhost',
+                                'port'=>6379,
+                                //if you use 2 servers
+//                                array(
+//                                        'host'=>'server2',
+//                                        'port'=>6379,
+//                                ),
+                        ),
+        ),
+    ),
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
